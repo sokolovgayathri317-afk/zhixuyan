@@ -51,3 +51,50 @@ body{position:relative;isolation:isolate;background:#030d1d;color:#e8f3ff;backgr
 
 /* Keep full-width calligraphy inside the viewport when a scrollbar is present. */
 .contact-section{overflow-x:clip}
+
+/* Mobile typography and reading rhythm. */
+@media(max-width:600px){
+  html{font-size:93.75%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{line-height:1.75}
+  .header-inner{min-height:70px;padding:10px 18px;gap:12px}
+  .brand{gap:8px}.brand strong{font-size:1.2rem;letter-spacing:1px}
+  .brand small{font-size:.8rem;letter-spacing:1px}.brand-seal{font-size:.9333rem;padding:4px 7px}
+  .header-cta{display:none}.menu-toggle{margin-left:auto;min-height:44px}
+  .mobile-nav{padding:8px 18px}.mobile-nav a{font-size:.9333rem;min-height:44px}
+  .hero{min-height:560px}.hero-inner{padding:40px 22px 32px}
+  .hero h1{font-size:clamp(1.85rem,7.5vw,2rem);line-height:1.45;letter-spacing:1px;margin:20px 0}
+  .hero p{font-size:1rem;line-height:1.85}
+  .eyebrow,.section-kicker{font-size:.8rem;letter-spacing:1px}
+  .hero-caption{display:none}.hero-actions{margin-top:25px;gap:10px}
+  .hero-actions>a{min-height:46px}.hero-ai-note{margin-top:20px}
+  .hero-ai-note strong{font-size:.9333rem}.hero-ai-note>span{font-size:.8667rem}
+  .hero .hero-note{margin-top:22px;font-size:.8rem;letter-spacing:1px}
+  .button,.hero-text-link,.soft-link,.case-open,.contact-action,.menu-toggle,.text-link{font-size:.9333rem;line-height:1.5;min-height:44px}
+  .button,.hero-text-link{padding:11px 16px}
+  .section{padding:40px 20px}.section-heading{gap:12px;margin-bottom:24px}
+  .section h2,.team-section h2,.contact-intro h2,.subject-detail h2,.note-group-heading h2{font-size:1.6rem;line-height:1.5;letter-spacing:.01em}
+  .section-heading>p,.team-intro>p{font-size:1rem;line-height:1.85}
+  .service-card,.case-main{padding:22px 20px}
+  .service-card h3,.section .case-main h3,.featured-note h3,.stage-intro h3{font-size:1.35rem;line-height:1.55}
+  .case-top{padding:13px 20px}.case-open{margin-inline:20px;width:calc(100% - 40px)}
+  .ai-integrity-section>.section{padding-top:16px;padding-bottom:40px}
+  .ai-risk-grid h3,.ai-service-boundary h3{font-size:1.25rem;line-height:1.6}
+  .ai-service-boundary{padding:22px 20px;gap:22px}
+  .trust-strip{padding:22px 20px;gap:14px}.trust-strip strong{font-size:.9667rem}
+  .trust-strip small,.stage-title small,.note-card-meta,.article-meta{font-size:.8rem}
+  .submission-grid h3,.principles-grid h3,.team-roles h3,.subject-link h3,.notes-short-list h3{font-size:1.1333rem;line-height:1.6}
+  .stage-title strong,.faq-items summary{font-size:1rem;line-height:1.65}
+  .stage-item summary{padding:17px 2px}.stage-body dd{font-size:.9667rem}
+  .featured-note{min-height:350px;padding:24px 20px}
+  .note-card h3{font-size:1.2667rem;line-height:1.55}
+  .contact-section{padding-top:0;gap:24px}.contact-section>.signature-scene{margin-inline:-20px}
+  .contact-panel{padding:22px 18px}.contact-method{padding:16px;gap:12px}
+  .contact-value{font-size:1.1333rem}.contact-email .contact-value{font-size:1rem}
+  .contact-action{padding:9px 12px}.contact-label{font-size:.8667rem}
+  .page-shell{padding:20px 20px 44px}.page-intro h1,.article-header h1{font-size:1.8rem;line-height:1.5}
+  .page-intro>p,.article-header>p,.subject-focus{font-size:1rem;line-height:1.85}
+  .article-prose{padding:22px 17px}.article-prose h2{font-size:1.25rem;line-height:1.6}
+  .article-prose p,.article-prose li{font-size:1rem;line-height:1.9}
+  .article-takeaway>p,.article-next>a{font-size:1.0667rem}
+  .page-callout h2{font-size:1.3333rem}.dialog-body h2{font-size:1.4rem;line-height:1.5}
+}
