@@ -48,3 +48,6 @@ body{position:relative;isolation:isolate;background:#030d1d;color:#e8f3ff;backgr
 @media(prefers-reduced-motion:reduce){.contact-action{transition:none}.contact-action:active{transform:none}}
 
 .contact-email .contact-value{font-size:clamp(1.05rem,1.65vw,1.25rem);letter-spacing:0}
+
+/* Keep full-width calligraphy inside the viewport when a scrollbar is present. */
+.contact-section{overflow-x:clip}
