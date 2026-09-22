@@ -58,37 +58,6 @@ const sectionObserver = new IntersectionObserver(entries => {
 ['main','services','journals','disciplines','notes','team'].forEach(id => {const element = document.getElementById(id); if (element) sectionObserver.observe(element);});
 }
 
-// Ambient background controls: explicit pause and operating-system motion preference.
-(() => {
- const control=document.querySelector('.motion-toggle');
- if(!control)return;
- const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
- const fine=window.matchMedia('(hover: hover) and (pointer: fine)');
- let manualPaused=false;
- try{manualPaused=sessionStorage.getItem('zhixu-motion-paused')==='true';}catch{}
- function update(){
-  const paused=manualPaused||reduced.matches;
-  document.documentElement.classList.toggle('motion-paused',paused);
-  control.setAttribute('aria-pressed',String(paused));
-  control.setAttribute('aria-label',reduced.matches?'系统已开启减少动态效果':paused?'播放动态背景':'暂停动态背景');
-  control.querySelector('.motion-label').textContent=reduced.matches?'静态背景':paused?'播放背景':'暂停背景';
-  control.querySelector('.motion-symbol').textContent=paused?'▷':'Ⅱ';
-  control.disabled=reduced.matches;
-  if(paused){document.documentElement.style.setProperty('--scene-x','0px');document.documentElement.style.setProperty('--scene-y','0px');}
- }
- control.addEventListener('click',()=>{manualPaused=!manualPaused;try{sessionStorage.setItem('zhixu-motion-paused',String(manualPaused));}catch{}update();});
- reduced.addEventListener('change',update);
- document.addEventListener('visibilitychange',()=>document.documentElement.classList.toggle('page-away',document.hidden));
- let queued=false,x=0,y=0;
- window.addEventListener('pointermove',event=>{
-  if(!fine.matches||reduced.matches||manualPaused)return;
-  x=(event.clientX/innerWidth-.5)*12;y=(event.clientY/innerHeight-.5)*8;
-  if(queued)return;queued=true;
-  requestAnimationFrame(()=>{document.documentElement.style.setProperty('--scene-x',x.toFixed(2)+'px');document.documentElement.style.setProperty('--scene-y',y.toFixed(2)+'px');queued=false;});
- },{passive:true});
- update();
-})();
-
 // Copy the published WeChat account; keep manual selection available when blocked.
 (() => {
  const button=document.querySelector('[data-copy-wechat]');
